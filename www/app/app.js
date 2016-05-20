@@ -24,5 +24,5 @@ angular.module('thebusao', ['ionic'])
     $urlRouterProvider.otherwise('/map');
     $httpProvider.interceptors.push('authFactory');
 })
-.constant('URL', 'http://localhost:3000/api');
+.constant('URL', 'https://thebusao.herokuapp.com/api');
 

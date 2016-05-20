@@ -1,6 +1,6 @@
 angular.module('thebusao', ['ionic'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, fixtureFactory) {
     $ionicPlatform.ready(function() {
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -9,16 +9,20 @@ angular.module('thebusao', ['ionic'])
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
+
+        fixtureFactory.initTokenValidRequest();
     });
 })
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
-    .state('map',{
-        url: '/map',
-        templateUrl: 'app/map/map.html',
-        controller: 'mapController as vm'
+        .state('map',{
+            url: '/map',
+            templateUrl: 'app/map/map.html',
+            controller: 'mapController as vm'
     });
 
     $urlRouterProvider.otherwise('/map');
+    $httpProvider.interceptors.push('authFactory');
 })
+.constant('URL', 'http://localhost:3000/api');
 

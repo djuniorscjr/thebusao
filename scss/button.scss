@@ -1,0 +1,25 @@
+.redondo {
+	border-radius: 100%;
+}
+
+.item-input-wrapper {
+	background: rgba(255, 255, 255, 0);
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	border: 1px solid rgb(222, 222, 222);
+	height: 150%;
+}
+
+.list-search {
+    width:100%;
+    position: absolute;
+	padding-top: 90%;
+	margin-left: -2%;
+	margin-right: -2%;
+	font-weight:bold;
+}
+
+.subheader-position {
+	position: absolute;
+}

@@ -1,11 +1,42 @@
-angular.module('thebusao')
-    .controller('mapController', mapController);
+(function() {
+    'use strict';
+    angular.module('thebusao')
+        .controller('mapController', mapController);
 
-mapController.$inject = [];
+    mapController.$inject = ['fixtureFactory', 'mapFactory', '$scope', '$timeout'];
 
-function mapController(){
-    var vm = this;
+    function mapController(fixtureFactory, mapFactory, $scope, $timeout){
+        var vm = this;
+        vm.busAll = [];
+        vm.linesAll = [];
+        getToken();
 
-    vm.name = "Mapa";
-};
+        $timeout(function(){
+            getVehicles();
+            getLines();
+        }, 2000);
+
+        function getToken() {
+            fixtureFactory.getTokenValidRequest();
+        };
+
+        function getVehicles() {
+            return mapFactory.getVehicles(vm.code)
+                .then(function(data){
+                    vm.busAll = data;
+                    return vm.busAll;
+            });
+        };
+
+        function getLines() {
+            return mapFactory.getLines(vm.search)
+                .then(function(data){
+                    vm.linesAll = data;
+                    console.log(data);
+                    return vm.linesAll;
+            });
+        };
+    };
+
+})();
 

@@ -25,10 +25,9 @@
 
             function getLinesFailed(error) {
                 if(error.data != null && error.data.err === "Token expirado"){
-                    fixtureFactory.getTokenValidRequest();
-                    $timeout(function(){
-                        vm.getVehicles();
-                    }, 1500);
+                    fixtureFactory.getTokenValidRequest().then(function(data){
+                        vm.getLines();
+                    });
                 }
             };
 
@@ -47,15 +46,13 @@
 
             function getVehiclesFailed(error) {
                 if(error.data != null && error.data.err === "Token expirado"){
-                    fixtureFactory.getTokenValidRequest();
-                    $timeout(function(){
+                    fixtureFactory.getTokenValidRequest().then(function(data){
                         vm.getVehicles();
-                    }, 1500);
+                    });
                 }
             };
-
         };
-    };
+   };
 })();
 
 

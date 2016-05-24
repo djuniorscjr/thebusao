@@ -1,6 +1,6 @@
-angular.module('thebusao', ['ionic'])
+angular.module('thebusao', ['ionic','ngMap'])
 
-.run(function($ionicPlatform, fixtureFactory) {
+.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -10,7 +10,6 @@ angular.module('thebusao', ['ionic'])
             StatusBar.styleDefault();
         }
 
-        fixtureFactory.initTokenValidRequest();
     });
 })
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -25,4 +24,5 @@ angular.module('thebusao', ['ionic'])
     $httpProvider.interceptors.push('authFactory');
 })
 .constant('URL', 'https://thebusao.herokuapp.com/api');
+// .constant('URL', 'https://localhost:3000/api');
 

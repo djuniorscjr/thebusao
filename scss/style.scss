@@ -23,3 +23,24 @@
 .subheader-position {
 	position: absolute;
 }
+.bar.bar-calm {
+	border: 0px;
+	background-color: #0a9dc7;
+}
+
+.available-scroller {
+    height: 79%;
+    padding-top: 12%;
+}
+
+.scroll {
+    height: 100%;
+    .ng-map {
+        height: 100%;
+    }
+}
+
+.platform-android .scroll-view.overflow-scroll {
+    position: absolute;
+}
+

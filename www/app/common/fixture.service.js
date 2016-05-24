@@ -7,29 +7,22 @@
 
     function fixtureFactory($http, URL, $window, $rootScope){
         return {
-            initTokenValidRequest: initTokenValidRequest,
             getTokenValidRequest: getTokenValidRequest
         };
 
-        function initTokenValidRequest() {
-            $rootScope.$on('getToken', function(){
-                $http.get(URL + "/v1/token")
+        function getTokenValidRequest() {
+            return $http.get(URL + "/v1/token")
                 .then(getTokenValidRequestSuccefuly)
                 .catch(getTokenValidRequestFailed);
 
                 function getTokenValidRequestSuccefuly(response) {
                     $window.localStorage.setItem('data', response.data.token);
+                    return true;
                 };
 
                 function getTokenValidRequestFailed(error) {
-                    console.log(error);
+                    return false;
                 };
-
-            });
-        };
-
-        function getTokenValidRequest() {
-            $rootScope.$broadcast('getToken');
         };
     };
 })();

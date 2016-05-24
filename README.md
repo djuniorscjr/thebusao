@@ -7,6 +7,7 @@ A simple app for location the bus in teresina-pi
 
 First of all, install the dependencies to run this.
 
+- [NodeJS](http://nodejs.org/)
 - [Ionic](http://ionicframework.com/)
 
 

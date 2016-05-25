@@ -3,9 +3,12 @@
     angular.module('thebusao')
         .controller('mapController', mapController);
 
-    mapController.$inject = ['fixtureFactory', 'mapFactory', '$scope', '$timeout', '$ionicPopup'];
+    mapController.$inject = ['fixtureFactory', 'mapFactory', '$scope', '$timeout', '$ionicPopup', 'NgMap',
+        'geolocationService'];
 
-    function mapController(fixtureFactory, mapFactory, $scope, $timeout, $ionicPopup){
+    function mapController(fixtureFactory, mapFactory, $scope, $timeout, $ionicPopup, NgMap, 
+            geolocationService){
+
         var vm = this;
 
         vm.linesAll = [];
@@ -15,6 +18,12 @@
         getToken();
 
         vm.setBusMap = setBusMap;
+        vm.showDetail = showDetail;
+        vm.getCenterLocation = getCenterLocation;
+
+        NgMap.getMap().then(function(map) {
+            vm.map = map;
+        });
 
         function getToken() {
             fixtureFactory.getTokenValidRequest()
@@ -50,6 +59,31 @@
             getAllVehicles(bus.CodigoLinha);
         };
 
+        function showDetail(bus) {
+            vm.bus = bus;
+            vm.map.showInfoWindow('bal', vm.bus.CodigoVeiculo);
+        };
+
+        function getCenterLocation() {
+            geolocationService().then(function(position) {
+                var p = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                vm.zoom = 15;
+                var marker = new google.maps.Marker({
+                    position: p,
+                    title: 'Você',
+                    map:vm.map,
+                    icon: 'img/home.png',
+                    draggable: true
+                });
+                vm.map.setCenter(p);
+            }).catch(function(err) {
+                vm.alertPopup = $ionicPopup.alert({
+                    title: 'Aviso!',
+                    template: 'Para obter sua posição ative seu GPS e'
+                    + 'clique novamente no icone de localização'
+                });
+            });
+        };
     };
 })();
 

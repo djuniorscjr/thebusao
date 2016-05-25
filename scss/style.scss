@@ -2,6 +2,88 @@
 	border-radius: 100%;
 }
 
+.scroll-content > map {
+	height: 100%;
+}
+
+.scroll-content > .scroll {
+	height: 100%;
+}
+
+.scroll-content > .scroll > map {
+	min-height: 100%;
+}
+
+map {
+	height: 100%;
+}
+.ng-map {
+	height: 100%;
+}
+.ng-map-info-window {
+	width: 272px !important;
+}
+
+.ng-map-info-window div > img{
+	position: absolute !important; 
+	left: -2px !important; 
+	top: -336px !important; 
+	width: 0px !important; 
+	height: 0px !important; 
+	-webkit-user-select: none !important; 
+	border: 0px !important; 
+	padding: 0px !important; 
+	margin: 0px !important; 
+	max-width: none !important;
+}
+.ng-map-info-window > div + div + div {
+	background-image: url(https://s3-sa-east-1.amazonaws.com/servnow/mobile/images/close32.png);
+	background-size: 96%;
+	width: 22px !important; 
+	height: 22px !important; 
+	overflow: hidden !important; 
+	position: absolute !important; 
+	opacity: 0.7 !important; 
+	right: 15px !important; 
+	top: 34px !important; 
+	z-index: 10000 !important; 
+	cursor: pointer !important;
+}
+.gm-style-iw {
+	top: 34px !important;
+}
+.gm-style-iw > div {
+	display:inline-block !important;
+	overflow: initial !important;
+	max-height: 434px !important;
+	max-width: 250px !important;
+}
+.ng-map-info-window > div > div + div{  
+	background-color: transparent !important;
+	box-shadow: rgba(0,0,0,0) 0px 0px 0px 0px !important;
+} 
+
+.ng-map-info-window > img {
+	top: 20px !important;
+	right: 5px !important;
+}
+
+.tamanho-balao {
+	width: 243px;
+	background: #F1F1F1;
+}
+
+.location-current {
+	padding-right: 3.3%;
+}
+
+.tamanho-balao a .item .item-avatar {
+	border-style: hidden !important;
+}
+
+.redondo {
+	border-radius: 100%;
+}
 .item-input-wrapper {
 	background: rgba(255, 255, 255, 0);
 	-webkit-border-radius: 100px;
@@ -12,9 +94,8 @@
 }
 
 .list-search {
-    width:100%;
-    position: absolute;
-	padding-top: 90%;
+    width: 104%;
+	padding-top: 12%;
 	margin-left: -2%;
 	margin-right: -2%;
 	font-weight:bold;
@@ -23,24 +104,3 @@
 .subheader-position {
 	position: absolute;
 }
-.bar.bar-calm {
-	border: 0px;
-	background-color: #0a9dc7;
-}
-
-.available-scroller {
-    height: 79%;
-    padding-top: 12%;
-}
-
-.scroll {
-    height: 100%;
-    .ng-map {
-        height: 100%;
-    }
-}
-
-.platform-android .scroll-view.overflow-scroll {
-    position: absolute;
-}
-

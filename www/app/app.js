@@ -1,4 +1,4 @@
-angular.module('thebusao', ['ionic','ngMap'])
+angular.module('thebusao', ['ionic','ngMap', 'ui.router', 'ngCordova'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

@@ -1,0 +1,46 @@
+.redondo {
+	border-radius: 100%;
+}
+
+.item-input-wrapper {
+	background: rgba(255, 255, 255, 0);
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	border: 1px solid rgb(222, 222, 222);
+	height: 150%;
+}
+
+.list-search {
+    width:100%;
+    position: absolute;
+	padding-top: 90%;
+	margin-left: -2%;
+	margin-right: -2%;
+	font-weight:bold;
+}
+
+.subheader-position {
+	position: absolute;
+}
+.bar.bar-calm {
+	border: 0px;
+	background-color: #0a9dc7;
+}
+
+.available-scroller {
+    height: 79%;
+    padding-top: 12%;
+}
+
+.scroll {
+    height: 100%;
+    .ng-map {
+        height: 100%;
+    }
+}
+
+.platform-android .scroll-view.overflow-scroll {
+    position: absolute;
+}
+

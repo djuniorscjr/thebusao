@@ -1,4 +1,4 @@
-angular.module('thebusao', ['ionic'])
+angular.module('thebusao', ['ionic','ngMap'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -9,16 +9,20 @@ angular.module('thebusao', ['ionic'])
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
+
     });
 })
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
-    .state('map',{
-        url: '/map',
-        templateUrl: 'app/map/map.html',
-        controller: 'mapController as vm'
+        .state('map',{
+            url: '/map',
+            templateUrl: 'app/map/map.html',
+            controller: 'mapController as vm'
     });
 
     $urlRouterProvider.otherwise('/map');
+    $httpProvider.interceptors.push('authFactory');
 })
+.constant('URL', 'https://thebusao.herokuapp.com/api');
+// .constant('URL', 'https://localhost:3000/api');
 

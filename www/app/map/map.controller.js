@@ -59,7 +59,7 @@
             getAllVehicles(bus.CodigoLinha);
         };
 
-        function showDetail(bus) {
+        function showDetail(e, bus) {
             vm.bus = bus;
             vm.map.showInfoWindow('bal', vm.bus.CodigoVeiculo);
         };

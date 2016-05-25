@@ -41,10 +41,12 @@
 
 			<info-window id="bal">
 				<div ng-non-bindable="" class="tamanho-balao">
-					<a class="item item-avatar">
-						<img>
-							<i class="icon ion-android-bus calm"></i> 
-						</img>{{vm.bus.Denomicao}}
+					<a class="item item-icon-left">
+						<i class="icon ion-android-bus calm"></i> 
+						<h5>{{vm.bus.Denomicao}}</h5>
+						<span class="item-note">
+							{{vm.bus.CodigoLinha}}
+						</span>
 					</a>
 				</div>
 			</info-window>

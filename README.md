@@ -18,6 +18,7 @@ $ cd thebusao
 
 # install dependencies
 $ bower install
+$ cordova plugin add cordova-plugin-geolocation
 
 # execute application server
 $ ionic serve

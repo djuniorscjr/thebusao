@@ -7,21 +7,22 @@
 		<div class="bar bar-header item-input-inset subheader-position">
 			<label class="item-input-wrapper">
 				<i class="icon ion-search calm"></i>
-				<input type="text" placeholder="Palavra-Chave" ng-model="vm.search">
+				<input type="text" placeholder="Digite o Bairro" ng-model="vm.search">
 			</label>
-		    <a ng-if="vm.search" on-touch="vm.search =''" 
-			    class="button-icon">
+		    <a ng-if="vm.search" on-touch="vm.search =''" class="button-icon">
 				<i class="icon ion-close-circled calm"></i>
 			</a>
 		</div>
 
-		<ul class="list list-search">
-			<li class="item item-icon-left" ng-repeat="bus in vm.linesAll | filter: vm.search | limitTo: 4" 
-				ng-if="vm.search" ng-click="vm.setBusMap(bus)">
-				  <i class="icon ion-android-bus calm"></i>
-					<h5>{{bus.Denomicao}}</h5>
-			</li>
-		</ul>
+        <ion-scroll direction="y" class="thebusao-scroll">
+            <ul class="list list-search">
+                <li class="item item-icon-left" ng-repeat="bus in vm.linesAll | filter: vm.search:strict" 
+                    ng-if="vm.search" ng-click="vm.setBusMap(bus)">
+                      <i class="icon ion-android-bus calm"></i>
+                        <h5>{{bus.Denomicao}}</h5>
+                </li>
+            </ul>
+        </ion-scroll>
 	</ion-subheader-bar>
 
 	<ion-content data-tap-disabled="true" has-subheader="true">

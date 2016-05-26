@@ -67,7 +67,7 @@
         function getCenterLocation() {
             geolocationService().then(function(position) {
                 var p = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                vm.zoom = 15;
+                vm.zoom = 12;
                 var marker = new google.maps.Marker({
                     position: p,
                     title: 'Você',

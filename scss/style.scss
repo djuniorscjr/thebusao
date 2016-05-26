@@ -2,21 +2,21 @@
 	border-radius: 100%;
 }
 
-.scroll-content > map {
-	height: 100%;
-}
+// .scroll-content > map {
+// 	height: 100%;
+// }
 
-.scroll-content > .scroll {
-	height: 100%;
-}
+// .scroll-content > .scroll {
+// 	height: 100%;
+// }
 
-.scroll-content > .scroll > map {
-	min-height: 100%;
-}
+// .scroll-content > .scroll > map {
+// 	min-height: 100%;
+// }
 
-map {
-	height: 100%;
-}
+// map {
+// 	height: 100%;
+// }
 .ng-map {
 	height: 100%;
 }
@@ -103,4 +103,10 @@ map {
 
 .subheader-position {
 	position: absolute;
+}
+
+.thebusao-scroll {
+    padding-top: 2%;
+    height: 300px;
+    position: absolute !important;
 }

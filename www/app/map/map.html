@@ -14,12 +14,13 @@
 			</a>
 		</div>
 
-        <ion-scroll direction="y" class="thebusao-scroll">
+        <ion-scroll direction="y" class="thebusao-scroll" ng-if="vm.search"
+            ng-class="{'small':vm.busAll.length, 'large': !vm.busAll.length}">
             <ul class="list list-search">
                 <li class="item item-icon-left" ng-repeat="bus in vm.linesAll | filter: vm.search:strict" 
                     ng-if="vm.search" ng-click="vm.setBusMap(bus)">
                       <i class="icon ion-android-bus calm"></i>
-                        <h5>{{bus.Denomicao}}</h5>
+                      <h5>{{bus.Denomicao}} </h5>
                 </li>
             </ul>
         </ion-scroll>

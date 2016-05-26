@@ -9908,3 +9908,6 @@ map {
 
 .small {
   height: 90px; }
+
+.loading-container .loading {
+  background-color: transparent; }

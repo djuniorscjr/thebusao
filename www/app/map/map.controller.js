@@ -26,6 +26,7 @@
         });
 
         function getToken() {
+            fixtureFactory.getLoading(true, "load");
             fixtureFactory.getTokenValidRequest()
                 .then(function(data){
                 getAllLines();
@@ -45,6 +46,7 @@
                         vm.busAll = data;
                         vm.search = data[0].Denomicao;
                     }
+                    fixtureFactory.getLoading(false, "");
             });
         };
 
@@ -52,10 +54,12 @@
             mapFactory.getLines(line)
                 .then(function(data){
                     vm.linesAll = data;
+                    fixtureFactory.getLoading(false, "");
             });
         };
 
         function setBusMap(bus) {
+            fixtureFactory.getLoading(true, "load");
             getAllVehicles(bus.CodigoLinha);
         };
 
@@ -65,6 +69,7 @@
         };
 
         function getCenterLocation() {
+            fixtureFactory.getLoading(true, "gps");
             geolocationService().then(function(position) {
                 vm.userPosition = [];
                 vm.userPosition[0] = position.coords.latitude;
@@ -73,6 +78,7 @@
                 vm.map.setCenter(
                     new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude));
+                fixtureFactory.getLoading(false, "");
             }).catch(function(err) {
                 vm.alertPopup = $ionicPopup.alert({
                     title: 'Aviso!',

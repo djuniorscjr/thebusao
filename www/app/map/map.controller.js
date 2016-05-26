@@ -66,16 +66,13 @@
 
         function getCenterLocation() {
             geolocationService().then(function(position) {
-                var p = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                vm.userPosition = [];
+                vm.userPosition[0] = position.coords.latitude;
+                vm.userPosition[1] = position.coords.longitude;
                 vm.zoom = 12;
-                var marker = new google.maps.Marker({
-                    position: p,
-                    title: 'Você',
-                    map:vm.map,
-                    icon: 'img/home.png',
-                    draggable: true
-                });
-                vm.map.setCenter(p);
+                vm.map.setCenter(
+                    new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude));
             }).catch(function(err) {
                 vm.alertPopup = $ionicPopup.alert({
                     title: 'Aviso!',

@@ -80,6 +80,7 @@
                                        position.coords.longitude));
                 fixtureFactory.getLoading(false, "");
             }).catch(function(err) {
+                fixtureFactory.getLoading(false, "");
                 vm.alertPopup = $ionicPopup.alert({
                     title: 'Aviso!',
                     template: 'Para obter sua posição ative seu GPS e'

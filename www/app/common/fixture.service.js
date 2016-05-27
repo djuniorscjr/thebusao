@@ -3,13 +3,14 @@
     angular.module('thebusao')
         .factory('fixtureFactory', fixtureFactory);
 
-    fixtureFactory.$inject = ['$http', 'URL', '$window', '$rootScope', '$ionicLoading'];
+    fixtureFactory.$inject = ['$http', 'URL', '$window', '$rootScope', '$ionicLoading', '$ionicPlatform'];
 
-    function fixtureFactory($http, URL, $window, $rootScope, $ionicLoading){
+    function fixtureFactory($http, URL, $window, $rootScope, $ionicLoading, $ionicPlatform){
 
         return {
             getTokenValidRequest: getTokenValidRequest,
-            getLoading: getLoading
+            getLoading: getLoading,
+            keyboard: keyboard
         };
 
         function getTokenValidRequest() {
@@ -45,6 +46,18 @@
             function hideLoading() {
                 $ionicLoading.hide();
             };
+        };
+
+        function keyboard(opt) {
+            $ionicPlatform.ready(function() {
+                if(window.cordova && window.cordova.plugins.Keyboard){
+                    if(opt){
+                        cordova.plugins.Keyboard.show();
+                    } else {
+                        cordova.plugins.Keyboard.close();
+                    }
+                }
+            });
         };
     };
 })();

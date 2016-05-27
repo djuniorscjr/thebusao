@@ -16,19 +16,21 @@
         vm.p = [-5.0958287, -42.7843285];
         vm.zoom = 10;
         vm.large = true;
-        getToken();
 
         vm.setBusMap = setBusMap;
         vm.showDetail = showDetail;
         vm.getCenterLocation = getCenterLocation;
         vm.clearSearch = clearSearch;
+        vm.showList = showList;
+
+        fixtureFactory.getLoading(true, "load");
 
         NgMap.getMap().then(function(map) {
             vm.map = map;
+            getToken();
         });
 
         function getToken() {
-            fixtureFactory.getLoading(true, "load");
             fixtureFactory.getTokenValidRequest()
                 .then(function(data){
                 getAllLines();
@@ -62,6 +64,7 @@
         };
 
         function setBusMap(bus) {
+            fixtureFactory.keyboard(false);
             fixtureFactory.getLoading(true, "load");
             getAllVehicles(bus.CodigoLinha);
         };
@@ -95,6 +98,11 @@
         function clearSearch() {
             vm.search = "";
             vm.large = true;
+            vm.showScroll = false;
+        };
+
+        function showList() {
+            vm.showScroll = true;
         };
     };
 })();

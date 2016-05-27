@@ -15,11 +15,13 @@
         vm.busAll = [];
         vm.p = [-5.0958287, -42.7843285];
         vm.zoom = 10;
+        vm.large = true;
         getToken();
 
         vm.setBusMap = setBusMap;
         vm.showDetail = showDetail;
         vm.getCenterLocation = getCenterLocation;
+        vm.clearSearch = clearSearch;
 
         NgMap.getMap().then(function(map) {
             vm.map = map;
@@ -45,6 +47,7 @@
                     }else{
                         vm.busAll = data;
                         vm.search = data[0].Denomicao;
+                        vm.large = false;
                     }
                     fixtureFactory.getLoading(false, "");
             });
@@ -74,7 +77,7 @@
                 vm.userPosition = [];
                 vm.userPosition[0] = position.coords.latitude;
                 vm.userPosition[1] = position.coords.longitude;
-                vm.zoom = 12;
+                vm.zoom = 11;
                 vm.map.setCenter(
                     new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude));
@@ -87,6 +90,11 @@
                     + 'clique novamente no icone de localização'
                 });
             });
+        };
+
+        function clearSearch() {
+            vm.search = "";
+            vm.large = true;
         };
     };
 })();

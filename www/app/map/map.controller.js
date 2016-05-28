@@ -51,6 +51,7 @@
                         vm.busAll = data;
                         vm.search = data[0].Denomicao;
                         vm.large = false;
+                        zoomIn(data);
                     }
                     fixtureFactory.getLoading(false, "");
             });
@@ -106,5 +107,12 @@
         function showList() {
             vm.showScroll = true;
         };
+
+        function zoomIn(bus){
+          vm.map.setCenter(
+            new google.maps.LatLng(bus[0].Lat, bus[0].Long)
+          );
+          vm.map.setZoom(15);
+        }
     };
 })();

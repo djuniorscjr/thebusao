@@ -38,7 +38,7 @@
 
 			<marker id="{{bus.CodigoVeiculo}}" position="[{{bus.Lat}}, {{bus.Long}}]"
                 ng-repeat="bus in vm.busAll track by bus.CodigoVeiculo" on-click="vm.showDetail(bus)"
-                icon="img/bus.png">
+                icon="img/icon-bus-blue.png">
 			</marker>
 
 			<marker position="{{vm.userPosition}}" title="Você" icon="img/home.png"></marker>
@@ -46,7 +46,7 @@
 			<info-window id="bal">
 				<div ng-non-bindable="" class="tamanho-balao">
 					<a class="item item-icon-left">
-						<i class="icon ion-android-bus calm"></i> 
+						<i class="icon ion-android-bus calm"></i>
 						<h5>{{vm.bus.Denomicao}}</h5>
 						<span class="item-note">
 							{{vm.bus.CodigoLinha}}

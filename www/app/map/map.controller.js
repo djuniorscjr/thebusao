@@ -6,7 +6,7 @@
     mapController.$inject = ['fixtureFactory', 'mapFactory', '$scope', '$timeout', '$ionicPopup', 'NgMap',
         'geolocationService'];
 
-    function mapController(fixtureFactory, mapFactory, $scope, $timeout, $ionicPopup, NgMap, 
+    function mapController(fixtureFactory, mapFactory, $scope, $timeout, $ionicPopup, NgMap,
             geolocationService){
 
         var vm = this;
@@ -43,7 +43,8 @@
                     if(data.length == 0){
                         vm.alertPopup = $ionicPopup.alert({
                            title: 'Aviso!',
-                           template: 'Não á onibus disponível no momento'
+                           template: 'Não á onibus disponível no momento',
+                           okType:'button-calm'
                         });
                         vm.bus = "";
                     }else{
@@ -90,7 +91,8 @@
                 vm.alertPopup = $ionicPopup.alert({
                     title: 'Aviso!',
                     template: 'Para obter sua posição ative seu GPS e'
-                    + 'clique novamente no icone de localização'
+                    + 'clique novamente no icone de localização',
+                    okType:'button-calm'
                 });
             });
         };
@@ -106,4 +108,3 @@
         };
     };
 })();
-

@@ -112,11 +112,15 @@ map {
 }
 
 .large {
-	height: 300px;
+	height: 500px;
 }
 
 .small {
 	height: 90px;
+}
+
+.clear {
+	height: 0px;
 }
 
 .loading-container .loading {

@@ -21,7 +21,7 @@
         vm.showDetail = showDetail;
         vm.getCenterLocation = getCenterLocation;
         vm.clearSearch = clearSearch;
-        vm.showList = showList;
+        vm.getItemHeight = getItemHeight;
 
         fixtureFactory.getLoading(true, "load");
 
@@ -43,7 +43,7 @@
                     if(data.length == 0){
                         vm.alertPopup = $ionicPopup.alert({
                            title: 'Aviso!',
-                           template: 'Não á onibus disponível no momento',
+                           template: 'Não a ônibus disponível no momento',
                            okType:'button-calm'
                         });
                         vm.bus = "";
@@ -60,7 +60,6 @@
         function getAllLines(line) {
             mapFactory.getLines(line)
                 .then(function(data){
-                  console.log(data);
                     vm.linesAll = data;
                     fixtureFactory.getLoading(false, "");
             });
@@ -68,8 +67,10 @@
 
         function setBusMap(bus) {
             fixtureFactory.keyboard(false);
-            fixtureFactory.getLoading(true, "load");
-            getAllVehicles(bus.CodigoLinha);
+            $timeout(function(){
+                fixtureFactory.getLoading(true, "load");
+                getAllVehicles(bus.CodigoLinha);
+            }, 1000);
         };
 
         function showDetail(e, bus) {
@@ -102,11 +103,6 @@
         function clearSearch() {
             vm.search = "";
             vm.large = true;
-            vm.showScroll = false;
-        };
-
-        function showList() {
-            vm.showScroll = true;
         };
 
         function zoomIn(bus){
@@ -116,6 +112,10 @@
             );
             vm.map.setZoom(15);
           }
-        }
+        };
+
+        function getItemHeight(item, index){
+           return (index % 2) === 0 ? 50 : 60;
+        };
     };
 })();

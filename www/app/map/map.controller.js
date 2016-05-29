@@ -60,7 +60,6 @@
         function getAllLines(line) {
             mapFactory.getLines(line)
                 .then(function(data){
-                  console.log(data);
                     vm.linesAll = data;
                     fixtureFactory.getLoading(false, "");
             });

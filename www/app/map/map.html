@@ -17,7 +17,7 @@
         <ion-scroll direction="y" class="thebusao-scroll" ng-if="vm.showScroll"
             ng-class="{'small': !vm.large, 'large': vm.large}">
             <ul class="list list-search">
-                <li class="item item-icon-left" collection-repeat="bus in vm.linesAll | filter: vm.search"
+				<li class="item item-icon-left" collection-repeat="bus in vm.linesAll | filter: vm.search"
                     ng-click="vm.setBusMap(bus)">
                       <i class="icon ion-android-bus calm"></i>
                       <h5>{{bus.Denomicao}} </h5>

@@ -6,7 +6,7 @@
     mapController.$inject = ['fixtureFactory', 'mapFactory', '$scope', '$timeout', '$ionicPopup', 'NgMap',
         'geolocationService'];
 
-    function mapController(fixtureFactory, mapFactory, $scope, $timeout, $ionicPopup, NgMap, 
+    function mapController(fixtureFactory, mapFactory, $scope, $timeout, $ionicPopup, NgMap,
             geolocationService){
 
         var vm = this;
@@ -43,13 +43,15 @@
                     if(data.length == 0){
                         vm.alertPopup = $ionicPopup.alert({
                            title: 'Aviso!',
-                           template: 'Não á onibus disponível no momento'
+                           template: 'Não á onibus disponível no momento',
+                           okType:'button-calm'
                         });
                         vm.bus = "";
                     }else{
                         vm.busAll = data;
                         vm.search = data[0].Denomicao;
                         vm.large = false;
+                        zoomIn(data);
                     }
                     fixtureFactory.getLoading(false, "");
             });
@@ -58,6 +60,7 @@
         function getAllLines(line) {
             mapFactory.getLines(line)
                 .then(function(data){
+                  console.log(data);
                     vm.linesAll = data;
                     fixtureFactory.getLoading(false, "");
             });
@@ -90,7 +93,8 @@
                 vm.alertPopup = $ionicPopup.alert({
                     title: 'Aviso!',
                     template: 'Para obter sua posição ative seu GPS e'
-                    + 'clique novamente no icone de localização'
+                    + 'clique novamente no icone de localização',
+                    okType:'button-calm'
                 });
             });
         };
@@ -104,6 +108,14 @@
         function showList() {
             vm.showScroll = true;
         };
+
+        function zoomIn(bus){
+          if(bus.length === 1){
+            vm.map.setCenter(
+              new google.maps.LatLng(bus[0].Lat, bus[0].Long)
+            );
+            vm.map.setZoom(15);
+          }
+        }
     };
 })();
-

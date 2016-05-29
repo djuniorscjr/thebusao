@@ -23,3 +23,5 @@ $ cordova plugin add cordova-plugin-geolocation
 # execute application server
 $ ionic serve
 ```
+
+![demo](Screenshots/thebusao-gif.gif)

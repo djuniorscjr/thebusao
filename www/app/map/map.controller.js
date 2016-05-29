@@ -60,6 +60,7 @@
         function getAllLines(line) {
             mapFactory.getLines(line)
                 .then(function(data){
+                  console.log(data);
                     vm.linesAll = data;
                     fixtureFactory.getLoading(false, "");
             });
@@ -109,10 +110,12 @@
         };
 
         function zoomIn(bus){
-          vm.map.setCenter(
-            new google.maps.LatLng(bus[0].Lat, bus[0].Long)
-          );
-          vm.map.setZoom(15);
+          if(bus.length === 1){
+            vm.map.setCenter(
+              new google.maps.LatLng(bus[0].Lat, bus[0].Long)
+            );
+            vm.map.setZoom(15);
+          }
         }
     };
 })();

@@ -21,7 +21,6 @@
         vm.showDetail = showDetail;
         vm.getCenterLocation = getCenterLocation;
         vm.clearSearch = clearSearch;
-        vm.getItemHeight = getItemHeight;
 
         fixtureFactory.getLoading(true);
 
@@ -112,10 +111,6 @@
             );
             vm.map.setZoom(15);
           }
-        };
-
-        function getItemHeight(item, index){
-           return (index % 2) === 0 ? 50 : 60;
         };
     };
 })();

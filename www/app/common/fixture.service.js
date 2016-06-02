@@ -28,18 +28,13 @@
                 };
         };
 
-        function getLoading(opt, img) {
-            if(opt){
-                showLoading(img);
-            }else{
-                hideLoading();
-            }
+        function getLoading(opt) {
+            opt ? showLoading() : hideLoading();
 
-            function showLoading(img) {
+            function showLoading() {
                 $ionicLoading.show({
-                    template: "<img src='img/" + img + ".svg' class='svg-inject' />",
-                    animate: "fade-in",
-                    showBackdrop: true
+                    template: "<div class='loader'>Loading...</div>",
+                    animate: "fade-in"
                 });
             };
 

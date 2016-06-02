@@ -23,7 +23,7 @@
         vm.clearSearch = clearSearch;
         vm.getItemHeight = getItemHeight;
 
-        fixtureFactory.getLoading(true, "load");
+        fixtureFactory.getLoading(true);
 
         NgMap.getMap().then(function(map) {
             vm.map = map;
@@ -53,7 +53,7 @@
                         vm.large = false;
                         zoomIn(data);
                     }
-                    fixtureFactory.getLoading(false, "");
+                    fixtureFactory.getLoading(false);
             });
         };
 
@@ -61,14 +61,14 @@
             mapFactory.getLines(line)
                 .then(function(data){
                     vm.linesAll = data;
-                    fixtureFactory.getLoading(false, "");
+                    fixtureFactory.getLoading(false);
             });
         };
 
         function setBusMap(bus) {
             fixtureFactory.keyboard(false);
             $timeout(function(){
-                fixtureFactory.getLoading(true, "load");
+                fixtureFactory.getLoading(true);
                 getAllVehicles(bus.CodigoLinha);
             }, 1000);
         };
@@ -79,7 +79,7 @@
         };
 
         function getCenterLocation() {
-            fixtureFactory.getLoading(true, "gps");
+            fixtureFactory.getLoading(true);
             geolocationService().then(function(position) {
                 vm.userPosition = [];
                 vm.userPosition[0] = position.coords.latitude;
@@ -88,9 +88,9 @@
                 vm.map.setCenter(
                     new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude));
-                fixtureFactory.getLoading(false, "");
+                fixtureFactory.getLoading(false);
             }).catch(function(err) {
-                fixtureFactory.getLoading(false, "");
+                fixtureFactory.getLoading(false);
                 vm.alertPopup = $ionicPopup.alert({
                     title: 'Aviso!',
                     template: 'Para obter sua posição ative seu GPS e'

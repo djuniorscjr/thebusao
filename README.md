@@ -24,4 +24,4 @@ $ cordova plugin add cordova-plugin-geolocation
 $ ionic serve
 ```
 
-![](screenShots/thebusaoGif.gif)
+![](screen_shots/thebusaoGif.gif)

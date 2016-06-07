@@ -78,7 +78,7 @@
         };
 
         function getCenterLocation() {
-            fixtureFactory.getLoading(true);
+            fixtureFactory.getLoading(true, 'gps');
             geolocationService().then(function(position) {
                 vm.userPosition = [];
                 vm.userPosition[0] = position.coords.latitude;

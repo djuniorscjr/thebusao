@@ -28,12 +28,13 @@
                 };
         };
 
-        function getLoading(opt) {
-            opt ? showLoading() : hideLoading();
+        function getLoading(opt, img) {
+            opt ? showLoading(img) : hideLoading();
 
-            function showLoading() {
+            function showLoading(img) {
+                var template = img ? '<img src="/img/' + img + '.svg"/>': '<div class="loader"></div';
                 $ionicLoading.show({
-                    template: "<div class='loader'>Loading...</div>",
+                    template: template,
                     animate: "fade-in"
                 });
             };

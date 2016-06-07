@@ -9,14 +9,13 @@ angular.module('thebusao', ['ionic','ngMap', 'ui.router', 'ngCordova'])
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
-
     });
 })
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
         .state('map',{
             url: '/map',
-            templateUrl: 'app/map/map.html',
+            templateUrl: 'templates/map/map.html',
             controller: 'mapController as vm'
     });
 
@@ -24,5 +23,4 @@ angular.module('thebusao', ['ionic','ngMap', 'ui.router', 'ngCordova'])
     $httpProvider.interceptors.push('authFactory');
 })
 .constant('URL', 'https://thebusao.herokuapp.com/api');
-// .constant('URL', 'https://localhost:3000/api');
 

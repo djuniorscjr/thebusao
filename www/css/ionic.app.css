@@ -9809,6 +9809,79 @@ a.button {
 .redondo {
   border-radius: 100%; }
 
+.scroll-content > map {
+  height: 100%; }
+
+.scroll-content > .scroll {
+  height: 100%; }
+
+.scroll-content > .scroll > map {
+  min-height: 100%; }
+
+map {
+  height: 100%; }
+
+.ng-map {
+  height: 100%; }
+
+.ng-map-info-window {
+  width: 272px !important; }
+
+.ng-map-info-window div > img {
+  position: absolute !important;
+  left: -2px !important;
+  top: -336px !important;
+  width: 0px !important;
+  height: 0px !important;
+  -webkit-user-select: none !important;
+  border: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  max-width: none !important; }
+
+.ng-map-info-window > div + div + div {
+  background-image: url(https://s3-sa-east-1.amazonaws.com/servnow/mobile/images/close32.png);
+  background-size: 96%;
+  width: 22px !important;
+  height: 22px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  opacity: 0.7 !important;
+  right: 15px !important;
+  top: 34px !important;
+  z-index: 10000 !important;
+  cursor: pointer !important; }
+
+.gm-style-iw {
+  top: 34px !important; }
+
+.gm-style-iw > div {
+  display: inline-block !important;
+  overflow: initial !important;
+  max-height: 434px !important;
+  max-width: 250px !important; }
+
+.ng-map-info-window > div > div + div {
+  background-color: transparent !important;
+  box-shadow: transparent 0px 0px 0px 0px !important; }
+
+.ng-map-info-window > img {
+  top: 20px !important;
+  right: 5px !important; }
+
+.tamanho-balao {
+  width: 243px;
+  background: #F1F1F1; }
+
+.location-current {
+  padding-right: 3.3%; }
+
+.tamanho-balao a .item .item-avatar {
+  border-style: hidden !important; }
+
+.redondo {
+  border-radius: 100%; }
+
 .item-input-wrapper {
   background: rgba(255, 255, 255, 0);
   -webkit-border-radius: 100px;
@@ -9818,9 +9891,8 @@ a.button {
   height: 150%; }
 
 .list-search {
-  width: 100%;
-  position: absolute;
-  padding-top: 90%;
+  width: 104%;
+  padding-top: 12%;
   margin-left: -2%;
   margin-right: -2%;
   font-weight: bold; }
@@ -9828,18 +9900,55 @@ a.button {
 .subheader-position {
   position: absolute; }
 
-.bar.bar-calm {
-  border: 0px;
-  background-color: #0a9dc7; }
+.thebusao-scroll {
+  padding: 3%;
+  width: 100%; }
 
-.available-scroller {
-  height: 79%;
-  padding-top: 12%; }
+.large {
+  height: 500px; }
 
-.scroll {
-  height: 100%; }
-  .scroll .ng-map {
-    height: 100%; }
+.small {
+  height: 90px; }
 
-.platform-android .scroll-view.overflow-scroll {
-  position: absolute; }
+.clear {
+  height: 0px; }
+
+.loading-container .loading {
+  background-color: transparent; }
+
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #11c1f3;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear; }
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em; }
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }

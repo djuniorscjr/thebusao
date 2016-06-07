@@ -3,14 +3,16 @@
     angular.module('thebusao')
         .factory('fixtureFactory', fixtureFactory);
 
-    fixtureFactory.$inject = ['$http', 'URL', '$window', '$rootScope', '$ionicLoading', '$ionicPlatform'];
+    fixtureFactory.$inject = ['$http', 'URL', '$window', '$rootScope', '$ionicLoading',
+     '$ionicPlatform', '$cordovaNetwork'];
 
-    function fixtureFactory($http, URL, $window, $rootScope, $ionicLoading, $ionicPlatform){
+    function fixtureFactory($http, URL, $window, $rootScope, $ionicLoading, $ionicPlatform, $cordovaNetwork){
 
         return {
             getTokenValidRequest: getTokenValidRequest,
             getLoading: getLoading,
-            keyboard: keyboard
+            keyboard: keyboard,
+            addConnectivityListeners: addConnectivityListeners
         };
 
         function getTokenValidRequest() {
@@ -57,5 +59,18 @@
                 }
             });
         };
-    };
+
+        function addConnectivityListeners(){
+          if(ionic.Platform.isWebView()){
+            $rootScope.$on('$cordovaNetwork:online', function(event, networkState){
+              $ionicLoading.hide();
+            });
+
+            $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+              $ionicLoading.show({
+                template:'Aguardando conexão com a internet...'
+              });
+          });
+        }
+      };
 })();

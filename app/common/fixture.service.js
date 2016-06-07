@@ -32,10 +32,11 @@
             opt ? showLoading(img) : hideLoading();
 
             function showLoading(img) {
-                var template = img ? '<img src="/img/' + img + '.svg"/>': '<div class="loader"></div';
+                var template = img ? "<img src='img/" + img + ".svg' class='svg-inject' />": '<div class="loader"></div';
                 $ionicLoading.show({
                     template: template,
-                    animate: "fade-in"
+                    animate: "fade-in",
+                    showBackdrop: true
                 });
             };
 

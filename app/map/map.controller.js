@@ -69,7 +69,7 @@
             $timeout(function(){
                 fixtureFactory.getLoading(true);
                 getAllVehicles(bus.CodigoLinha);
-            }, 1000);
+            }, 500);
         };
 
         function showDetail(e, bus) {

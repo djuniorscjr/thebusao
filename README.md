@@ -20,6 +20,7 @@ $ cd thebusao
 $ bower install
 $ npm install
 $ cordova plugin add cordova-plugin-geolocation
+$ ionic setup sass
 
 # execute application server
 $ ionic serve

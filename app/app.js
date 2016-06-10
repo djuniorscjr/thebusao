@@ -1,7 +1,7 @@
 angular.module('thebusao', ['ionic','ngMap', 'ui.router', 'ngCordova'])
 
 .run(function($ionicPlatform, fixtureFactory) {
-    $ionicPlatform.ready(function(fixtureFactory) {
+    $ionicPlatform.ready(function() {
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);

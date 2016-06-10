@@ -17,9 +17,14 @@ $ git clone git://github.com/djuniorscjr/thebusao.git thebusao
 $ cd thebusao
 
 # install dependencies
+
 $ bower install
+
 $ npm install
+
 $ cordova plugin add cordova-plugin-geolocation
+$ cordova plugin add cordova-plugin-network-information
+
 $ ionic setup sass
 
 # execute application server

@@ -70,7 +70,9 @@
               $ionicLoading.show({
                 template:'Aguardando conexão com a internet...'
               });
-          });
-        }
-      };
+            });
+          }
+        };
+
+    }
 })();

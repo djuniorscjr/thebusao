@@ -15,7 +15,6 @@ var paths = {
     sass: ['./scss/**/*.scss'],
     js: ['./app/*.js', './app/**/*.js'],
     html: ['./app/**/*.html']
-
 };
 
 gulp.task('default', ['sass', 'js', 'html']);
@@ -33,15 +32,14 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
-gulp.task('js', function(done){
-    gulp.src(paths.js)
+gulp.task('js', function(){
+    return gulp.src(paths.js)
     .pipe(concat('bundle.js'))
     .pipe(closure({angular: true}))
     .pipe(rename('bundle.min.js'))
     .pipe(ngAnnotate())
     .pipe(uglify())
-    .pipe(gulp.dest('./www/js'))
-    .on('end', done);
+    .pipe(gulp.dest('./www/js'));
 });
 
 gulp.task('html', function(done){
